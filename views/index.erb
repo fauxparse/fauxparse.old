@@ -165,7 +165,7 @@
                 t = $('<blockquote><p class="source"><a href="http://twitter.com/fauxparse"><strong>@</strong>fauxparse on Twitter</a></p></blockquote>')
                   .appendTo('#twitter .tweets');
                 text = tweet.text
-                  .replace(/((http(s)?:\/\/)?([\w\-]+(\.[\w\-]+)+(\/[^\/]+)*[^\.\s]))/, '<a href="http$3://$4">$1</a>')
+                  .replace(/((http(s)?:\/\/)?([\w\-]+(\.[\w\-]+)+(\/[^\s\/]+)*[^\.\s]))/, '<a href="http$3://$4" target="_blank">$1</a>')
                   .replace(/@(\w+)/, '<a href="http://twitter.com/$1"><strong>@</strong>$1</a>');
                 $('<p></p>').html(text).prependTo(t);
                 $('<span class="date"></span>').html(tweet.created_at).appendTo($('.source', t));

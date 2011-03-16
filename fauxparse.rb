@@ -1,5 +1,6 @@
 require "erb"
 require "./lib/twitter"
+require "./lib/lastfm"
 
 configure do
   REDIS = if config = ENV['REDISTOGO_URL']
@@ -18,4 +19,10 @@ get "/tweets" do
   content_type :json
   headers['Cache-Control'] = 'max-age=300, must-revalidate'
   Twitter.latest
+end
+
+get "/lastfm" do
+  content_type :json
+  headers['Cache-Control'] = 'max-age=0, must-revalidate'
+  LastFm.stats
 end

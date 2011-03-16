@@ -407,6 +407,170 @@ strong {
   font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
   text-transform: uppercase;
   width: 568px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+#lastfm .tracks {
+  position: relative;
+  margin: 20px 0px 20px 0px;
+  width: 576px;
+}
+
+#lastfm .tracks .track {
+  
+}
+
+#lastfm .tracks .track:first-child {
+  position: absolute;
+  left: 620px;
+  top: -20px;
+  width: 256px;
+  padding-top: 260px;
+}
+
+#lastfm .tracks .track:first-child:after {
+  content: ".";
+  text-indent: -10em;
+  overflow: hidden;
+  position: absolute;
+  left: -10px;
+  top: 0px;
+  width: 256px;
+  height: 256px;
+  background: url(../img/lastfm/jewel-case-large.png) no-repeat 0px 0px;
+}
+
+#lastfm .tracks .track:first-child h3 {
+  position: absolute;
+  left: 0px;
+  top: 160px;
+  width: 238px;
+  line-height: 40px;
+  vertical-align: center;
+  font-size: 200%;
+  margin: 0px;
+  padding: 0px;
+  text-indent: 9px;
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px;
+  text-shadow: black 0px -1px 1px;
+  z-index: 10;
+}
+
+#lastfm .tracks .track:first-child img {
+  position: absolute;
+  left: 25px;
+  top: 37px;
+  width: 207px;
+  height: 204px;
+}
+
+#lastfm .tracks .track:first-child .artist,
+#lastfm .tracks .track:first-child .title,
+#lastfm .tracks .track:first-child .album {
+  display: block;
+  width: 236px;
+  line-height: 20px;
+  vertical-align: middle;
+  margin: 0px;
+  padding: 0px;
+}
+
+#lastfm .tracks .track:first-child .artist,
+#lastfm .tracks .track:first-child .album,
+#lastfm .album .artist {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+}
+
+#lastfm .tracks .track:first-child .artist {
+  color: #ccc;
+}
+
+#lastfm .tracks .track:first-child .title {
+  font-size: 125%;
+  color: white;
+}
+
+#lastfm .albums {
+  position: relative;
+  margin: 20px 0px 20px -8px;
+  width: 576px;
+}
+
+#lastfm .albums h2 {
+  margin-left: 8px;
+}
+
+#lastfm .album {
+  float: left;
+  position: relative;
+  width: 208px;
+  height: 60px;
+  padding-left: 72px;
+  margin: 0px 0px 20px 8px;
+}
+
+#lastfm .album img,
+#lastfm .albums>.album:after {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: black 0px 1px 4px;
+}
+
+#lastfm .albums>.album:after {
+  content: ".";
+  text-indent: -10em;
+  overflow: hidden;
+  background: transparent;
+  -webkit-box-shadow: inset rgba(255, 255, 255, 0.25) 0px 1px 1px;
+}
+
+#lastfm .album .artist {
+  display: block;
+}
+
+#lastfm .album .album {
+  font-size: 125%;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+#lastfm .loading {
+  position: absolute;
+  left: 0px;
+  bottom: -120px;
+  height: 120px;
+  width: 856px;
+  background: url(../img/lastfm/lastfm-logo.png) no-repeat 0px 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+#lastfm.loading .loading {
+  bottom: 0px;
+  opacity: 1.0;
+}
+
+#lastfm .loading p {
+  font-size: 200%;
+  line-height: 40px;
+  position: absolute;
+  left: 360px;
+  bottom: 20px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  width: 568px;
+  color: rgba(255, 255, 255, 0.25);
 }
 
 #footer {

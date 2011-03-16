@@ -13,6 +13,7 @@
         <li><a href="/design">Design</a></li>
         <li><a href="/code">Code</a></li>
         <li class="external"><a rel="twitter" href="http://twitter.com/fauxparse">Twitter</a></li>
+        <li class="external"><a rel="lastfm" href="http://last.fm/user/fauxparse">Twitter</a></li>
       </ul>
     </div>
     <div id="home">
@@ -83,6 +84,17 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
         
+        <div class="section loading" id="lastfm" style="opacity: 0">
+          <div class="tracks">
+          </div>
+          <div class="albums">
+            <h2>My most frequently-played <strong>albums</strong></h2>
+          </div>
+          <div class="loading">
+            <p>Loading stats…</p>
+          </div>
+        </div>
+        
         <div class="section loading" id="twitter" style="opacity: 0">
           <div class="tweets">
             
@@ -110,6 +122,36 @@
         });
 
         $('#header .navigation .external a').append('<span></span>');
+        
+        $('#header .navigation a[rel=lastfm]').one('click', function() {
+          $('#lastfm .tracks, #lastfm .albums').css({ opacity: 0 });
+          $.ajax({
+            url: '/lastfm',
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+              tracks = $('#lastfm .tracks');
+              $.each(data.tracks, function(i, track) {
+                t = $('<div class="track"></div>').appendTo(tracks);
+                $('<img>').attr('src', track.image).attr('alt', track.album).appendTo(t);
+                $('<span class="artist"></span>').html(track.artist).appendTo(t);
+                $('<span class="title"></span>').html(track.title).appendTo(t);
+                $('<span class="album"></span>').html(track.album).appendTo(t);
+                return false;
+              });
+              $('.track:first-child', tracks).prepend('<h3>Last <strong>track</strong> played</h3>')
+              albums = $('#lastfm .albums');
+              $.each(data.albums.slice(0,6), function(i, album) {
+                t = $('<div class="album"></div>').appendTo(albums);
+                $('<img>').attr('src', album.image).attr('alt', album.album).appendTo(t);
+                $('<span class="artist"></span>').html(album.artist).appendTo(t);
+                $('<span class="album"></span>').html(album.album).appendTo(t);
+              });
+              $('#lastfm').removeClass('loading')
+                .find('.tracks, .albums').animate({ opacity: 1.0 });
+            }
+          });
+        });
         
         $('#header .navigation a[rel=twitter]').one('click', function() {
           $.ajax({

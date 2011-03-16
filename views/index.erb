@@ -12,6 +12,7 @@
       <ul class="navigation">
         <li><a href="/design">Design</a></li>
         <li><a href="/code">Code</a></li>
+        <li class="external"><a rel="twitter" href="http://twitter.com/fauxparse">Twitter</a></li>
       </ul>
     </div>
     <div id="home">
@@ -82,6 +83,15 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
         
+        <div class="section loading" id="twitter" style="opacity: 0">
+          <div class="tweets">
+            
+          </div>
+          <div class="loading">
+            <p>Loading Tweets…</p>
+          </div>
+        </div>
+        
       </div>
     </div>
     <div id="footer">
@@ -98,16 +108,49 @@
         $('#home .slider .section').each(function(i) {
           $(this).css({ left: (i * 960) + 'px' });
         });
+
+        $('#header .navigation .external a').append('<span></span>');
         
+        $('#header .navigation a[rel=twitter]').one('click', function() {
+          $.ajax({
+            url: '/tweets',
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+              max = 360;
+              $('#twitter .tweets').css({ opacity: 0 });
+              $.each(data, function(i, tweet) {
+                t = $('<blockquote><p class="source"><a href="http://twitter.com/fauxparse"><strong>@</strong>fauxparse on Twitter</a></p></blockquote>')
+                  .appendTo('#twitter .tweets');
+                text = tweet.text
+                  .replace(/((http(s)?:\/\/)?([\w\-]+(\.[\w\-]+)+(\/[^\/]+)*[^\.\s]))/, '<a href="http$3://$4">$1</a>')
+                  .replace(/@(\w+)/, '<a href="http://twitter.com/$1"><strong>@</strong>$1</a>');
+                $('<p></p>').html(text).prependTo(t);
+                $('<span class="date"></span>').html(tweet.created_at).appendTo($('.source', t));
+                console.log
+                if (t.position().top + t.height() > max) {
+                  t.hide();
+                  return false;
+                }
+              });
+              $('#twitter .tweets')
+                .animate({ opacity: 1.0 }, 500)
+                .parent().removeClass('loading');
+            }
+          });
+          return false;
+        });
+
         $('#header .navigation a').click(function() {
           $(this).addClass('active').parent().siblings().find('a').removeClass('active');
-          $section = $($(this).attr('href').replace('/', '#'));
+          $section = $(($(this).attr('rel') || $(this).attr('href')).replace(/^\/?/, '#'));
           $section.animate({ opacity: 1.0 }, 500).siblings('.section').animate({ opacity: 0.0 }, 500);
           $('#home .slider').animate({ left:($section.index() * -960) + 'px' }, 500);
           pos = $(this).position();
           $('#home .slider .tick').animate({ left:($section.index() * 960 + pos.left + $(this).width() / 2) + 'px' }, 500);
           return false;
         }).eq(0).click();
+        
       });
     </script>
   </body>

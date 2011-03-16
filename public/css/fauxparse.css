@@ -69,6 +69,7 @@ a {
 
 strong {
   color: #ec008c;
+  font-weight: normal;
 }
 
 #header {
@@ -129,6 +130,39 @@ strong {
   color: #ec008c;
 }
 
+#header .navigation .external a {
+  float: right;
+  position: relative;
+  margin: -16px -4px 0px 4px;
+  width: 72px;
+  height: 72px;
+  background: url(../img/external-icons.png) no-repeat 0px 0px;
+  overflow: hidden;
+  text-indent: -10em;
+}
+
+#header .navigation .external a span {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.0;
+  background: url(../img/external-icons.png) no-repeat 0px 0px;
+  -webkit-transition: opacity 0.5s ease-in-out;
+}
+
+#header .navigation .external a.active span {
+  opacity: 1.0;
+}
+
+#header .navigation .external a[rel=twitter]      { background-position: -72px 0px; }
+#header .navigation .external a[rel=twitter] span { background-position: -72px -72px; }
+
+#header .navigation .external a:after {
+  display: none;
+}
+
 #home {
   position: relative;
   margin: 0px -16px 0px;
@@ -178,11 +212,11 @@ strong {
 #home .slider blockquote:before {
   content: "“";
   position: absolute;
-  left: -0.4em;
+  left: -0.35em;
   top: 0.6ex;
   font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
   font-size: 800%;
-  opacity: 0.15;
+  opacity: 0.2;
 }
 
 #home .slider blockquote p {
@@ -298,6 +332,79 @@ strong {
 
 #code .iphone .caption {
   width: 800px;
+}
+
+#twitter .tweets {
+  position: relative;
+  margin: 20px 0px 20px 496px;
+  height: 360px;
+}
+
+#twitter .tweets blockquote {
+  width: 424px;
+}
+
+#twitter .tweets blockquote p.source a {
+  display: none;
+}
+
+#twitter .tweets blockquote p.source .date {
+  display: block;
+  line-height: 20px;
+}
+
+#twitter .tweets blockquote:first-child {
+  position: absolute;
+  top: 0px;
+  left: -496px;
+}
+
+#twitter .tweets blockquote:first-child:before {
+  font-size: 1200%;
+}
+
+#twitter .tweets blockquote:first-child p {
+  font-size: 200%;
+  line-height: 40px;
+}
+
+#twitter .tweets blockquote:first-child p.source {
+  font-size: 125%;
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+#twitter .tweets blockquote:first-child p.source a {
+  display: block;
+}
+
+#twitter .loading {
+  position: absolute;
+  left: 0px;
+  bottom: -140px;
+  height: 140px;
+  width: 856px;
+  background: url(../img/twitter/big-bird.png) no-repeat 0px 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+#twitter.loading .loading {
+  bottom: 0px;
+  opacity: 1.0;
+}
+
+#twitter .loading p {
+  font-size: 200%;
+  line-height: 40px;
+  position: absolute;
+  left: 288px;
+  bottom: 20px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  width: 568px;
 }
 
 #footer {

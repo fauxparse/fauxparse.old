@@ -158,6 +158,8 @@ strong {
 
 #header .navigation .external a[rel=twitter]      { background-position: -72px 0px; }
 #header .navigation .external a[rel=twitter] span { background-position: -72px -72px; }
+#header .navigation .external a[rel=lastfm]       { background-position:   0px 0px; }
+#header .navigation .external a[rel=lastfm] span  { background-position:   0px -72px; }
 
 #header .navigation .external a:after {
   display: none;

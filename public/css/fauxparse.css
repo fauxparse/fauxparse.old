@@ -1,0 +1,310 @@
+body {
+  background: #181818 url(../img/texture-main.jpg) repeat-x 50% 0px;
+  margin: 0px;
+  padding: 0px;
+  font: 14px/20px "Museo Sans", "museo-sans-1", "museo-sans-2", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  color: #999;
+}
+
+body:after {
+  display: none;
+  content: ".";
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  bottom: 0px;
+  width: 856px;
+  margin-left: -428px;
+  height: 100%;
+  overflow: hidden;
+  text-indent: -10em;
+  background: url(../img/grid.png) repeat-y 0px 0px;
+  opacity: 0.5;
+}
+
+h1, h2, h3, .navigation a {
+  font-family: "League Gothic", "league-gothic-1", "league-gothic-2", "Arial Narrow", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #eee;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 54px;
+  line-height: 40px;
+  vertical-align: middle;
+  margin: 20px 0px 0px;
+  padding: 0px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 40px;
+  margin: 0px;
+  padding: 12px 0px 8px;
+  text-shadow: black 0px 1px 4px;
+}
+
+h1 em,
+h2 em,
+h3 em {
+  font-family: "Baskerville";
+  font-weight: normal;
+  font-style: italic;
+  color: #ec008c;
+}
+
+p {
+  margin: 0px;
+  padding: 00px 0px 20px;
+}
+
+a {
+  color: #00aeef;
+  text-decoration: none;
+}
+
+strong {
+  color: #ec008c;
+}
+
+#header {
+  position: relative;
+  width: 856px;
+  height: 139px;
+  margin: 0px auto;
+  padding: 60px 0px 0px;
+}
+
+#header h1 a {
+  color: white;
+  text-decoration: none;
+  text-shadow: black 0px 1px 4px;
+}
+
+#header h1 a:after {
+  content: ".";
+  color: #ec008c;
+}
+
+#header .navigation {
+  margin: 0px 0px 0px;
+  padding: 20px 0px 0px;
+}
+
+#header .navigation li {
+  display: inline;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#header .navigation li a {
+  display: block;
+  float: left;
+  margin-right: 0.25em;
+  font-size: 48px;
+  line-height: 40px;
+  vertical-align: middle;
+  color: #333;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
+  letter-spacing: 0.02em;
+  -webkit-transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+#header .navigation li a.active {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 1) 0px 1px 4px;
+}
+
+#header .navigation a:after {
+  content: ".";
+}
+
+#header .navigation a.active:after {
+  color: #ec008c;
+}
+
+#home {
+  position: relative;
+  margin: 0px -16px 0px;
+  background: #111 url(../img/texture-dark.jpg) repeat-x 50% 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  height: 400px;
+  -webkit-box-shadow: inset black 0px 1px 8px;
+  -moz-box-shadow: inset black 0px 1px 8px;
+}
+
+#home .slider {
+  position: relative;
+  width: 856px;
+  height: 400px;
+  margin: 0px auto;
+}
+
+#home .slider .section {
+  position: absolute;
+  top: 0px;
+  width: 856px;
+  height: 400px;
+  text-shadow: black 0px 1px 1px;
+}
+
+#home .slider .tick {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 20px;
+  height: 16px;
+  background: url(../img/tick.png) no-repeat 0px 0px;
+  margin-left: -10px;
+}
+
+#home .slider h2 {
+  margin-top: 20px;
+}
+
+#home .slider blockquote {
+  margin: 0px;
+  padding: 0px 0px 20px;
+  position: relative;
+}
+
+#home .slider blockquote:before {
+  content: "“";
+  position: absolute;
+  left: -0.4em;
+  top: 0.6ex;
+  font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
+  font-size: 800%;
+  opacity: 0.15;
+}
+
+#home .slider blockquote p {
+  position: relative;
+  font-size: 16px;
+  padding: 0px;
+  color: white;
+}
+
+#home .slider blockquote p.source {
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+}
+
+.caption {
+  margin: -8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: black 0px 1px 4px;
+}
+
+.caption p {
+  padding: 0px;
+}
+
+#design p {
+  width: 568px;
+}
+
+#design h2,
+#design blockquote p {
+  width: 640px;
+}
+
+#design #hansel-gretel {
+  position: absolute;
+  top: 0px;
+  left: 640px;
+  width: 216px;
+  height: 400px;
+}
+
+#design #hansel-gretel img {
+  position: absolute;
+  left: -8px;
+  bottom: 60px;
+  z-index: 5;
+}
+
+#design #hansel-gretel .caption {
+  position: absolute;
+  left: 8px;
+  bottom: 20px;
+  width: 208px;
+}
+
+#design #hansel-gretel .caption p {
+  width: auto;
+}
+
+#design .posters {
+  position: relative;
+  margin: 0px 0px 20px;
+  padding: 0px;
+  height: 88px;
+}
+
+#design .posters li {
+  display: inline;
+  list-style: none;
+}
+
+#design .posters li a {
+  float: left;
+  width: 64px;
+  height: 88px;
+  margin-right: 8px;
+  background: url(../img/design/posters/thumbnails.png) no-repeat 0px 0px;
+  text-indent: -100em;
+  text-decoration: none;
+  overflow: hidden;
+  -webkit-box-shadow: black 0px 1px 4px;
+}
+
+#design .posters li a.duckling               { background-position:    0px 0px; }
+#design .posters li a.robin                  { background-position:  -64px 0px; }
+#design .posters li a.jack-and-the-beanstalk { background-position: -128px 0px; }
+#design .posters li a.pinocchio              { background-position: -192px 0px; }
+#design .posters li a.goldilocks             { background-position: -256px 0px; }
+#design .posters li a.three-little-pigs      { background-position: -320px 0px; }
+#design .posters li a.rumpelstiltskin        { background-position: -384px 0px; }
+#design .posters li a.rumbustification       { background-position: -448px 0px; }
+
+#code p {
+  width: 496px;
+}
+
+#code p strong {
+  font-weight: bold;
+  font-size: 125%;
+  line-height: 80%;
+}
+
+#code .iphone img {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+#code .iphone .caption {
+  width: 800px;
+}
+
+#footer {
+  width: 856px;
+  margin: 0px auto;
+  padding: 19px 0px 160px;
+  font-size: 13px;
+  color: #666;
+  text-shadow: black 0px -1px 1px;
+}

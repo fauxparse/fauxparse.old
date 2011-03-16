@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matt Powell / fauxpar.se</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/fauxparse.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    <div id="header">
+      <h1><a href="/">Matt Powell</a></h1>
+      <ul class="navigation">
+        <li><a href="/design">Design</a></li>
+        <li><a href="/code">Code</a></li>
+      </ul>
+    </div>
+    <div id="home">
+      <div class="slider">
+        <div class="section" id="design" style="opacity: 0">
+          <h2>Web <em>&amp;</em> Print <em>&amp;</em> Illustration.</h2>
+          <blockquote>
+            <p>Matt is a creative guru. The quality and flair of his graphic design makes ham&#8209;fisted amateurs, like myself, want to give up. Leave it to the professionals.</p>
+            <p class="source"><a href="http://nz.linkedin.com/pub/matthew-journee/5/72b/722">Matthew Journee</a></p>
+          </blockquote>
+          <ul class="posters">
+            <li><a class="duckling" href="img/design/posters/duckling.png">The Ugly Duckling</a></li>
+            <li><a class="robin" href="img/design/posters/robin.png">Robin Hood &amp; Maid Marian</a></li>
+            <li><a class="jack-and-the-beanstalk" href="img/design/posters/jack-and-the-beanstalk.png">Jack and the Beanstalk</a></li>
+            <li><a class="pinocchio" href="img/design/posters/pinocchio.png">Pinocchio</a></li>
+            <li><a class="goldilocks" href="img/design/posters/goldilocks.png">Goldilocks and the Three Bears</a></li>
+            <li><a class="three-little-pigs" href="img/design/posters/three-little-pigs.png">The Three Little Pigs</a></li>
+            <li><a class="rumpelstiltskin" href="img/design/posters/rumpelstiltskin.png">Rumpelstiltskin</a></li>
+            <li><a class="rumbustification" href="img/design/posters/rumbustification.png">The Great Piratical Rumbustification</a></li>
+          </ul>
+          <p>
+            Ever since I can remember, I’ve been obsessed with presenting my work
+            in a way that will fascinate, inspire, and delight.
+            As well as websites (you’re looking at one right now)
+            and application interfaces, I’ve designed
+            posters, fliers, tickets, brochures, newsletters, t-shirts, promotional
+            packaging, signage, and board games.
+          </p>
+          <div class="screenshot" id="hansel-gretel">
+            <img src="img/design/hansel-gretel.png" alt="Illustration of Hansel and Gretel">
+            <p class="caption">
+              A lot of my illustration is for <a href="http://www.courttheatre.org.nz">the Court Theatre</a>’s school holiday shows. This is Hansel &amp; Gretel.
+            </p>
+          </div>
+        </div>
+
+        <div class="section" id="code" style="opacity: 0">
+          <h2>Kick-ass apps for web <em>&amp;</em> mobile.</h2>
+          <p>
+            I craft web apps with Ruby and Javascript, focusing on interfaces that keep people coming back for more.
+            I’ve also started developing for Apple touch devices (because I <strong>&hearts;</strong> my iPhone).
+          </p>
+          <blockquote>
+            <p>Matt has an inbuilt sense of usability: the systems he develops are usable and intuitive.</p>
+            <p class="source"><a href="http://nz.linkedin.com/pub/ian-warren/14/959/477">Ian Warren</a></p>
+          </blockquote>
+          <blockquote>
+            <p>His code and coding practices are some of the cleanest and brightest I’ve seen.</p>
+            <p class="source"><a href="http://nz.linkedin.com/in/juliansuggate">Julian Suggate</a></p>
+          </blockquote>
+          <div class="iphone screenshot">
+            <img src="img/code/chc-screenshot-home.png" alt="A screenshot from the CHC mobile app">
+            <div class="caption">
+              <p>This is CHC, a tiny mobile web app for flight information 
+              from Christchurch International Airport. It uses Sinatra, Zepto.js,
+              Backbone.js, and Redis.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section" id="write" style="opacity: 0">
+          <h2>Lorem ipsum dolor sit amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        
+        <div class="section" id="perform" style="opacity: 0">
+          <h2>Lorem ipsum dolor sit amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        
+      </div>
+    </div>
+    <div id="footer">
+      <p>&copy; 2011 Matt Powell.</p>
+    </div>
+    
+    <script type="text/javascript" src="http://use.typekit.com/dhx7xal.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $('<div class="tick"></div>').appendTo('#home .slider');
+        
+        $('#home .slider .section').each(function(i) {
+          $(this).css({ left: (i * 960) + 'px' });
+        });
+        
+        $('#header .navigation a').click(function() {
+          $(this).addClass('active').parent().siblings().find('a').removeClass('active');
+          $section = $($(this).attr('href').replace('/', '#'));
+          $section.animate({ opacity: 1.0 }, 500).siblings('.section').animate({ opacity: 0.0 }, 500);
+          $('#home .slider').animate({ left:($section.index() * -960) + 'px' }, 500);
+          pos = $(this).position();
+          $('#home .slider .tick').animate({ left:($section.index() * 960 + pos.left + $(this).width() / 2) + 'px' }, 500);
+          return false;
+        }).eq(0).click();
+      });
+    </script>
+  </body>
+</html>

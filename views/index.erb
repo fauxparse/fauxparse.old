@@ -147,6 +147,8 @@
                 $('<span class="artist"></span>').html(album.artist).appendTo(t);
                 $('<span class="album"></span>').html(album.album).appendTo(t);
               });
+              $('<p class="more"><a href="http://last.fm/user/fauxparse">See more stats at <strong>last.fm</strong> »</a></p>')
+                .appendTo(albums);
               $('#lastfm').removeClass('loading')
                 .find('.tracks, .albums').animate({ opacity: 1.0 });
             }

@@ -597,6 +597,15 @@ strong {
   color: rgba(255, 255, 255, 0.25);
 }
 
+#lastfm p.more {
+  clear: left;
+  margin-left: 8px;
+}
+
+#lastfm p.more a {
+  color: #ccc;
+}
+
 #footer {
   width: 856px;
   margin: 0px auto;

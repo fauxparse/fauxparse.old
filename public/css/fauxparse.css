@@ -1,5 +1,5 @@
 body {
-  background: #181818 url(../img/texture-main.jpg) repeat-x 50% 0px;
+  background: #181818 url(../img/noise.png) repeat 50% 0px;
   margin: 0px;
   padding: 0px;
   font: 14px/20px "Museo Sans", "museo-sans-1", "museo-sans-2", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -70,7 +70,7 @@ a {
 }
 
 a:hover {
-  background: rgba(0, 174, 239, 0.25);
+  background: rgba(0, 174, 239, 0.15);
   margin: 0px -4px;
   padding: 0px 4px;
 }
@@ -126,6 +126,7 @@ strong {
   text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
   letter-spacing: 0.02em;
+  cursor: pointer;
   -webkit-transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
 }
 
@@ -172,10 +173,10 @@ strong {
   opacity: 1.0;
 }
 
-#header .navigation .external a[rel=twitter]      { background-position: -72px 0px; }
-#header .navigation .external a[rel=twitter] span { background-position: -72px -72px; }
-#header .navigation .external a[rel=lastfm]       { background-position:   0px 0px; }
-#header .navigation .external a[rel=lastfm] span  { background-position:   0px -72px; }
+#header .navigation .twitter a      { background-position: -72px 0px; }
+#header .navigation .twitter a span { background-position: -72px -72px; }
+#header .navigation .lastfm  a      { background-position:   0px 0px; }
+#header .navigation .lastfm  a span { background-position:   0px -72px; }
 
 #header .navigation .external a:after {
   display: none;
@@ -184,7 +185,7 @@ strong {
 #home {
   position: relative;
   margin: 0px -16px 0px;
-  background: #111 url(../img/texture-dark.jpg) repeat-x 50% 0px;
+  background: #111 url(../img/noise.png) repeat 50% 0px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   height: 400px;
@@ -211,10 +212,10 @@ strong {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 20px;
-  height: 16px;
-  background: url(../img/tick.png) no-repeat 0px 0px;
-  margin-left: -10px;
+  width: 28px;
+  height: 20px;
+  background: url(../img/tick.png) no-repeat 50% 0px;
+  margin-left: -14px;
 }
 
 #home .slider h2 {

@@ -10,10 +10,10 @@
     <div id="header">
       <h1><a href="/">Matt Powell</a></h1>
       <ul class="navigation">
-        <li><a href="/design">Design</a></li>
-        <li><a href="/code">Code</a></li>
-        <li class="external"><a rel="twitter" href="http://twitter.com/fauxparse">Twitter</a></li>
-        <li class="external"><a rel="lastfm" href="http://last.fm/user/fauxparse">Twitter</a></li>
+        <li><a href="#/design">Design</a></li>
+        <li><a href="#/code">Code</a></li>
+        <li class="external twitter"><a href="#/twitter">Twitter</a></li>
+        <li class="external lastfm"><a href="#/lastfm">Last.fm</a></li>
       </ul>
     </div>
     <div id="home">
@@ -123,7 +123,7 @@
 
         $('#header .navigation .external a').append('<span></span>');
         
-        $('#header .navigation a[rel=lastfm]').one('click', function() {
+        $('#header .navigation .lastfm a').one('click', function() {
           $('#lastfm .tracks, #lastfm .albums').css({ opacity: 0 });
           $.ajax({
             url: '/lastfm',
@@ -153,7 +153,7 @@
           });
         });
         
-        $('#header .navigation a[rel=twitter]').one('click', function() {
+        $('#header .navigation .twitter a').one('click', function() {
           $.ajax({
             url: '/tweets',
             type: 'get',
@@ -166,7 +166,8 @@
                   .appendTo('#twitter .tweets');
                 text = tweet.text
                   .replace(/((http(s)?:\/\/)?([\w\-]+(\.[\w\-]+)+(\/[^\s\/]+)*[^\.\s]))/, '<a href="http$3://$4" target="_blank">$1</a>')
-                  .replace(/@(\w+)/, '<a href="http://twitter.com/$1"><strong>@</strong>$1</a>');
+                  .replace(/@(\w+)/, '<a href="http://twitter.com/$1"><strong>@</strong>$1</a>')
+                  .replace(/#(\w+)/, '<a href="http://twitter.com/#!/search?q=%23$1"><strong>#</strong>$1</a>');
                 $('<p></p>').html(text).prependTo(t);
                 $('<span class="date"></span>').html(tweet.created_at).appendTo($('.source', t));
                 console.log
@@ -180,19 +181,22 @@
                 .parent().removeClass('loading');
             }
           });
-          return false;
         });
 
         $('#header .navigation a').click(function() {
           $(this).addClass('active').parent().siblings().find('a').removeClass('active');
-          $section = $(($(this).attr('rel') || $(this).attr('href')).replace(/^\/?/, '#'));
+          $section = $(($(this).attr('rel') || $(this).attr('href')).replace(/^(#\/)?/, '#'));
           $section.animate({ opacity: 1.0 }, 500).siblings('.section').animate({ opacity: 0.0 }, 500);
           $('#home .slider').animate({ left:($section.index() * -960) + 'px' }, 500);
           pos = $(this).position();
           $('#home .slider .tick').animate({ left:($section.index() * 960 + pos.left + $(this).width() / 2) + 'px' }, 500);
-          return false;
-        }).eq(0).click();
+        });
         
+        if (hash = window.location.hash.replace(/^#?\//, '')) {
+          $('#header .navigation a[href=#\\/' + hash + ']').eq(0).click();
+        } else {
+          $('#header .navigation a').eq(0).click();
+        }
       });
     </script>
   </body>

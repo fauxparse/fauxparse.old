@@ -371,11 +371,13 @@ strong {
 #twitter .tweets blockquote:first-child p.source {
   font-size: 125%;
   line-height: 20px;
-  margin-top: 20px;
+  margin-top: 0px;
+  padding-top: 10px;
 }
 
 #twitter .tweets blockquote:first-child p.source a {
   display: block;
+  padding-bottom: 10px;
 }
 
 #twitter .loading {

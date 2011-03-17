@@ -75,7 +75,9 @@ a {
   text-decoration: none;
   cursor: pointer;
   -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   -webkit-transition: background 0.25s ease-in, margin 0.25s ease-in, padding 0.25s ease-in;
+  -moz-transition: background 0.25s ease-in, margin 0.25s ease-in, padding 0.25s ease-in;
 }
 
 a:hover {
@@ -144,6 +146,7 @@ strong {
   text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
   letter-spacing: 0.02em;
   -webkit-transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+  -moz-transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
 }
 
 #header .navigation li a:hover {
@@ -183,6 +186,7 @@ strong {
   opacity: 0.0;
   background: url(../img/external-icons.png) no-repeat 0px 0px;
   -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
 }
 
 #header .navigation .external a.active span {
@@ -251,6 +255,8 @@ strong {
   top: 0.6ex;
   font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
   font-size: 800%;
+  line-height: 1px;
+  vertical-align: top;
   opacity: 0.2;
 }
 
@@ -274,7 +280,9 @@ strong {
   background: rgba(255, 255, 255, 0.1);
   font-size: 13px;
   -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
   -webkit-box-shadow: black 0px 1px 4px;
+  -moz-box-shadow: black 0px 1px 4px;
 }
 
 .caption p {
@@ -340,6 +348,7 @@ strong {
   text-decoration: none;
   overflow: hidden;
   -webkit-box-shadow: black 0px 1px 4px, inset rgba(255, 255, 255, 0.5) 0px 1px 1px;
+  -moz-box-shadow: black 0px 1px 4px, inset rgba(255, 255, 255, 0.5) 0px 1px 1px;
 }
 
 #design .posters li a.duckling               { background-position:    0px 0px; }
@@ -373,12 +382,12 @@ strong {
 
 #twitter .tweets {
   position: relative;
-  margin: 20px 0px 20px 496px;
+  margin: 20px 0px 20px 504px;
   height: 360px;
 }
 
 #twitter .tweets blockquote {
-  width: 424px;
+  width: 352px;
 }
 
 #twitter .tweets blockquote p.source a {
@@ -394,6 +403,7 @@ strong {
   position: absolute;
   top: 0px;
   left: -496px;
+  width: 424px;
 }
 
 #twitter .tweets blockquote:first-child:before {
@@ -429,6 +439,7 @@ strong {
   background: url(../img/twitter/big-bird.png) no-repeat 0px 100%;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
 }
 
 #twitter.loading .loading {
@@ -492,9 +503,10 @@ strong {
   padding: 0px;
   text-indent: 9px;
   background: rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px;
   text-shadow: black 0px -1px 1px;
   z-index: 10;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px;
 }
 
 #lastfm .tracks .track:first-child img {
@@ -560,7 +572,9 @@ strong {
   width: 60px;
   height: 60px;
   -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   -webkit-box-shadow: black 0px 1px 4px;
+  -moz-box-shadow: black 0px 1px 4px;
 }
 
 #lastfm .albums>.album:after {
@@ -569,6 +583,7 @@ strong {
   overflow: hidden;
   background: transparent;
   -webkit-box-shadow: inset rgba(255, 255, 255, 0.25) 0px 1px 1px;
+  -moz-box-shadow: inset rgba(255, 255, 255, 0.25) 0px 1px 1px;
 }
 
 #lastfm .album .artist {
@@ -592,6 +607,7 @@ strong {
   background: url(../img/lastfm/lastfm-logo.png) no-repeat 0px 100%;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
 }
 
 #lastfm.loading .loading {
@@ -682,7 +698,9 @@ strong {
   color: #333;
   text-shadow: white 0px 1px 1px;
   -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 8px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 8px;
 }
 
 #colophon:after {

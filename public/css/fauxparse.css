@@ -7,8 +7,7 @@ body {
   color: #999;
 }
 
-body:after {
-  display: none;
+body.grid:after {
   content: ".";
   pointer-events: none;
   position: absolute;
@@ -22,6 +21,7 @@ body:after {
   text-indent: -10em;
   background: url(../img/grid.png) repeat-y 0px 0px;
   opacity: 0.5;
+  z-index: 100;
 }
 
 h1, h2, h3, .navigation a {
@@ -48,6 +48,14 @@ h2 {
   text-shadow: black 0px 1px 4px;
 }
 
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0px;
+  padding: 12px 0px 8px;
+  text-shadow: black 0px 1px 4px;
+}
+
 h1 em,
 h2 em,
 h3 em {
@@ -65,6 +73,7 @@ p {
 a {
   color: #00aeef;
   text-decoration: none;
+  cursor: pointer;
   -webkit-border-radius: 4px;
   -webkit-transition: background 0.25s ease-in, margin 0.25s ease-in, padding 0.25s ease-in;
 }
@@ -86,6 +95,12 @@ strong {
   height: 139px;
   margin: 0px auto;
   padding: 60px 0px 0px;
+  overflow: hidden;
+}
+
+#header h1 {
+  position: relative;
+  z-index: 5;
 }
 
 #header h1 a {
@@ -103,6 +118,8 @@ strong {
 }
 
 #header .navigation {
+  position: relative;
+  z-index: 5;
   margin: 0px 0px 0px;
   padding: 20px 0px 0px;
 }
@@ -126,7 +143,6 @@ strong {
   text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 1px;
   letter-spacing: 0.02em;
-  cursor: pointer;
   -webkit-transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
 }
 
@@ -607,10 +623,140 @@ strong {
 }
 
 #footer {
+  position: relative;
+  height: 160px;
   width: 856px;
   margin: 0px auto;
   padding: 19px 0px 160px;
   font-size: 13px;
   color: #666;
   text-shadow: black 0px -1px 1px;
+}
+
+#footer h2 {
+  color: #111;
+  position: absolute;
+  right: -6px;
+  top: 20px;
+  font-size: 160px;
+  line-height: 104px;
+  text-shadow: #000 0px -1px 1px;
+  opacity: 0.5;
+}
+
+#footer p {
+  padding-bottom: 10px;
+}
+
+#footer dl {
+  margin: 0px 0px 10px;
+  padding: 0px;
+}
+
+#footer dt {
+  clear: left;
+  float: left;
+  color: #666;
+  width: 64px;
+  margin: 0px 8px 0px 0px;
+}
+
+#footer dd {
+  margin: 0px;
+  padding: 0px;
+}
+
+#footer a {
+  color: #999;
+}
+
+#colophon {
+  position: absolute;
+  z-index: 50;
+  left: 144px;
+  top: -40px;
+  width: 568px;
+  background: rgba(255, 255, 255, 0.85) url(../img/noise.png) repeat 0px 0px;
+  margin: -12px;
+  padding: 12px 12px 2px;
+  color: #333;
+  text-shadow: white 0px 1px 1px;
+  -webkit-border-radius: 12px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 8px;
+}
+
+#colophon:after {
+  content: ".";
+  position: absolute;
+  left: -16px;
+  bottom: 32px;
+  width: 16px;
+  height: 20px;
+  overflow: hidden;
+  text-indent: -10em;
+  background: url(../img/balloon-tick-west.png) no-repeat 0 0;
+}
+
+#colophon h3 {
+  margin: 0px;
+  padding: 0px;
+  color: #333;
+  font-size: 28px;
+  text-shadow: white 0px 1px 1px;
+}
+
+#colophon p {
+  width: 424px;
+  font-size: 14px;
+}
+
+#colophon p a {
+  color: #00aeef;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px;
+}
+
+#colophon ul {
+  position: absolute;
+  right: 12px;
+  top: 52px;
+  width: 64px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#colophon ul li {
+  display: block;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#colophon ul li a {
+  color: #999;
+}
+
+#colophon a.grid {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 64px;
+}
+
+#colophon a.grid ins,
+#colophon a.grid del {
+  color: #ec008c;
+  text-decoration: none;
+}
+
+#colophon a.grid ins,
+body.grid #colophon a.grid del { display: none; }
+body.grid #colophon a.grid ins { display: inline; }
+
+#colophon a.close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 200%;
+  background: none;
+  text-shadow: none;
 }

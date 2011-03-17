@@ -106,8 +106,40 @@
         
       </div>
     </div>
-    <div id="footer">
-      <p>&copy; 2011 Matt Powell.</p>
+    
+    <div id="footer" class="vcard">
+      <h2 class="org">fauxparse</h2>
+      <p class="copyright">
+        &copy; 2011 <a class="url fn" href="http://fauxpar.se">Matt Powell</a>,
+        <span class="adr">
+          <span class="locality">Christchurch</span>,
+          <span class="country-name">New Zealand</span>.
+        </span>
+      </p>
+      <dl>
+        <dt>Email</dt> <dd><a class="email" href="mailto:fauxparse@gmail.com">fauxparse@gmail.com</a></dd>
+        <dt>Twitter</dt> <dd><a class="twitter" href="http://twitter.com/fauxparse">@fauxparse</a></dd>
+        <dt>LinkedIn</dt> <dd><a class="linkedin" href="http://nz.linkedin.com/in/fauxparse">View my profile</a></dd>
+      </dl>
+      <p><a class="about-this-site" href="#/colophon">About this site</a></p>
+      <div id="colophon" style="display: none;">
+        <h3>About this site</h3>
+        <p>
+          Typeset in <a href="http://typekit.com/fonts/museo-sans" target="_blank">Museo Sans</a> and <a href="http://typekit.com/fonts/league-gothic" target="_blank">League Gothic</a>, supplied by <a href="http://typekit.com" target="_blank">TypeKit</a>.<br>
+          Twitter, Last.fm, Github, and other logos © their respective owners; used without permission,
+          but in acknowledgement of the great (and often free!) support of those companies.
+        </p>
+        <p>Coded by hand on a Mac: <a href="http://github.com/fauxparse/fauxparse" target="_blank">view the source at Github</a>.</p>
+        <p>Something looks odd? Please <a href="mailto:fauxparse@gmail.com">let me know</a>.
+        <ul class="acknowledgements">
+          <li><a href="http://heroku.com/">Heroku</a></li>
+          <li><a href="http://typekit.com/">TypeKit</a></li>
+          <li><a href="http://www.sinatrarb.com/">Sinatra</a></li>
+          <li><a href="http://redis.io/">Redis</a></li>
+        </ul>
+        <a class="grid">Grid is <ins>on</ins> <del>off</del></a>
+        <a class="close">&times;</a>
+      </div>
     </div>
     
     <script type="text/javascript" src="http://use.typekit.com/dhx7xal.js"></script>
@@ -199,6 +231,28 @@
         } else {
           $('#header .navigation a').eq(0).click();
         }
+        
+        $('a.about-this-site').click(function() {
+          if ($(this).hasClass('visible')) {
+            $('#colophon a.close').click();
+          } else {
+            $(this).addClass('visible');
+            $('#colophon').css({ top: '20px', opacity: 0 }).show().animate({ top: '-20px', opacity: 1.0 });
+          }
+          return false;
+        });
+        
+        $('#colophon a.grid').click(function() {
+          $('body').toggleClass('grid');
+          return false;
+        });
+        
+        $('#colophon a.close').click(function() {
+          $('#colophon').animate({ top: '20px', opacity: 0.0 }, function() {
+            $(this).hide();
+            $('a.about-this-site').removeClass('visible');
+          });
+        });
       });
     </script>
   </body>

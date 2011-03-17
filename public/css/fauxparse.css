@@ -514,6 +514,7 @@ strong {
   top: 37px;
   width: 207px;
   height: 204px;
+  background: url(/img/lastfm/unknown-album.png) no-repeat 0px 0px;
 }
 
 #lastfm .tracks .track:first-child .artist,
@@ -776,4 +777,9 @@ body.grid #colophon a.grid ins { display: inline; }
   font-size: 200%;
   background: none;
   text-shadow: none;
+}
+
+a#fancybox-close {
+  margin: 0px;
+  padding: 0px;
 }

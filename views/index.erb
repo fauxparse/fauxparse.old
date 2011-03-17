@@ -4,7 +4,8 @@
     <title>Matt Powell / fauxpar.se</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" href="css/fauxparse.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/js/fancy/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/fauxparse.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
     <div id="header">
@@ -25,14 +26,14 @@
             <p class="source"><a href="http://nz.linkedin.com/pub/matthew-journee/5/72b/722">Matthew Journee</a></p>
           </blockquote>
           <ul class="posters">
-            <li><a class="duckling" href="img/design/posters/duckling.png">The Ugly Duckling</a></li>
-            <li><a class="robin" href="img/design/posters/robin.png">Robin Hood &amp; Maid Marian</a></li>
-            <li><a class="jack-and-the-beanstalk" href="img/design/posters/jack-and-the-beanstalk.png">Jack and the Beanstalk</a></li>
-            <li><a class="pinocchio" href="img/design/posters/pinocchio.png">Pinocchio</a></li>
-            <li><a class="goldilocks" href="img/design/posters/goldilocks.png">Goldilocks and the Three Bears</a></li>
-            <li><a class="three-little-pigs" href="img/design/posters/three-little-pigs.png">The Three Little Pigs</a></li>
-            <li><a class="rumpelstiltskin" href="img/design/posters/rumpelstiltskin.png">Rumpelstiltskin</a></li>
-            <li><a class="rumbustification" href="img/design/posters/rumbustification.png">The Great Piratical Rumbustification</a></li>
+            <li><a class="thumbnail duckling" href="img/design/posters/duckling.png">The Ugly Duckling</a></li>
+            <li><a class="thumbnail robin" href="img/design/posters/robin.png">Robin Hood &amp; Maid Marian</a></li>
+            <li><a class="thumbnail jack-and-the-beanstalk" href="img/design/posters/jack-and-the-beanstalk.png">Jack and the Beanstalk</a></li>
+            <li><a class="thumbnail pinocchio" href="img/design/posters/pinocchio.png">Pinocchio</a></li>
+            <li><a class="thumbnail goldilocks" href="img/design/posters/goldilocks.png">Goldilocks and the Three Bears</a></li>
+            <li><a class="thumbnail three-little-pigs" href="img/design/posters/three-little-pigs.png">The Three Little Pigs</a></li>
+            <li><a class="thumbnail rumpelstiltskin" href="img/design/posters/rumpelstiltskin.png">Rumpelstiltskin</a></li>
+            <li><a class="thumbnail rumbustification" href="img/design/posters/rumbustification.png">The Great Piratical Rumbustification</a></li>
           </ul>
           <p>
             Ever since I can remember, I’ve been obsessed with presenting my work
@@ -145,6 +146,8 @@
     <script type="text/javascript" src="http://use.typekit.com/dhx7xal.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/easing.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/fancy/jquery.fancybox-1.3.4.pack.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
       $(function() {
         $('<div class="tick"></div>').appendTo('#home .slider');
@@ -175,7 +178,7 @@
               albums = $('#lastfm .albums');
               $.each(data.albums.slice(0,6), function(i, album) {
                 t = $('<div class="album"></div>').appendTo(albums);
-                $('<img>').attr('src', album.image).attr('alt', album.album).appendTo(t);
+                $('<img>').attr('src', album.image || '/img/lastfm/unknown-album.png').attr('alt', album.album).appendTo(t);
                 $('<span class="artist"></span>').html(album.artist).appendTo(t);
                 $('<span class="album"></span>').html(album.album).appendTo(t);
               });
@@ -231,6 +234,19 @@
         } else {
           $('#header .navigation a').eq(0).click();
         }
+        
+        $('#design a.thumbnail')
+          .attr('rel', 'gallery')
+          .fancybox({
+            width         : 320,
+            height        : 450,
+            transitionIn	:	'elastic',
+        		transitionOut	:	'elastic',
+        		easingIn      : 'easeOutBack',
+            easingOut     : 'easeInBack',
+            overlayColor  : '#000',
+            padding       : 0
+          });
         
         $('a.about-this-site').click(function() {
           if ($(this).hasClass('visible')) {

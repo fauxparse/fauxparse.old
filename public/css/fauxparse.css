@@ -3,11 +3,10 @@ body {
   margin: 0px;
   padding: 0px;
   font: 14px/20px "Museo Sans", "museo-sans-1", "museo-sans-2", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
   color: #999;
 }
 
-body.grid:after {
+body.grid #grid {
   content: ".";
   pointer-events: none;
   position: absolute;
@@ -204,7 +203,7 @@ strong {
 
 #home {
   position: relative;
-  margin: 0px -16px 0px;
+  margin: 0px;
   background: #111 url(../img/noise.png) repeat 50% 0px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -252,10 +251,10 @@ strong {
   content: "“";
   position: absolute;
   left: -0.35em;
-  top: 0.6ex;
+  top: -0.1em;
   font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
   font-size: 800%;
-  line-height: 1px;
+  line-height: 1em;
   vertical-align: top;
   opacity: 0.2;
 }
@@ -402,7 +401,7 @@ strong {
 #twitter .tweets blockquote:first-child {
   position: absolute;
   top: 0px;
-  left: -496px;
+  left: -504px;
   width: 424px;
 }
 
@@ -643,7 +642,7 @@ strong {
   height: 160px;
   width: 856px;
   margin: 0px auto;
-  padding: 19px 0px 160px;
+  padding: 19px 0px 80px;
   font-size: 13px;
   color: #666;
   text-shadow: black 0px -1px 1px;

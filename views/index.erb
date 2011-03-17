@@ -243,7 +243,11 @@
         });
         
         $('#colophon a.grid').click(function() {
+          if (!$('#grid').length) {
+            $('<div id="grid"></div>').appendTo('body');
+          }
           $('body').toggleClass('grid');
+          $('#grid').css({ height:$(document).height() + 'px' });
           return false;
         });
         

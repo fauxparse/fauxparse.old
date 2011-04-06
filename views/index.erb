@@ -13,6 +13,7 @@
       <ul class="navigation">
         <li><a href="#/design">Design</a></li>
         <li><a href="#/code">Code</a></li>
+        <li class="external photos"><a href="#/photos">Photos</a></li>
         <li class="external twitter"><a href="#/twitter">Twitter</a></li>
         <li class="external lastfm"><a href="#/lastfm">Last.fm</a></li>
       </ul>
@@ -105,6 +106,18 @@
           </div>
         </div>
         
+        <div class="section loading" id="photos" style="opacity: 0">
+          <!-- <h2>Latest photos from <a href="http://instagre.at/#/by/fauxparse">Instagram</a></h2> -->
+          <ol class="photos">
+            
+          </ol>
+          <!--
+            <div class="loading">
+              <p>Loading Photos…</p>
+            </div>
+          -->
+        </div>
+        
       </div>
     </div>
     
@@ -148,6 +161,7 @@
     <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/easing.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/fancy/jquery.fancybox-1.3.4.pack.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.isotope.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
       $(function() {
         $('<div class="tick"></div>').appendTo('#home .slider');
@@ -216,6 +230,61 @@
               $('#twitter .tweets')
                 .animate({ opacity: 1.0 }, 500)
                 .parent().removeClass('loading');
+            }
+          });
+        });
+        
+        $('#header .navigation .photos a').one('click', function() {
+          $photos = $('#photos .photos');
+          $.ajax({
+            url: '/photos',
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+              data = data.slice(0, 13);
+              console.log(data);
+              $.each(data, function(i, photo) {
+                $li = $('<li></li>').appendTo('#photos .photos');
+                $('<a></a>')
+                  .appendTo($li)
+                  .attr('href', photo.image_versions[0].url)
+                  .append('<img src="' + photo.image_versions[2].url + '">')
+                  .hide()
+                  .find('img').load(function() { $(this).closest('a').fadeIn(); });
+              });
+              
+              $photos.isotope({
+                itemSelector: 'li',
+                layoutMode : 'fitColumns',
+                resizesContainer : false,
+                getSortData : {
+                  fitOrder : function( $item ) {
+                    var index = $item.index();
+                    if ($item.hasClass('large') && (m = index % 3)) {
+                      return (index + 3 - m) * 10 + 5;
+                    } else {
+                      return index * 10;
+                    }
+                  }
+                },
+                sortBy : 'fitOrder'
+              });
+              
+              $('a', $photos).one('click', function() {
+                $('img', this).attr('src', $(this).attr('href'));
+              }).click(function(){
+                var $this = $(this).parent();
+                if (!$this.hasClass('large')) {
+                  var $previousLargeItem = $this.siblings('.large');
+                  $previousLargeItem.removeClass('large');
+                  $this.addClass('large');
+                  $photos
+                    .isotope('updateSortData', $this )
+                    .isotope('updateSortData', $previousLargeItem )
+                    .isotope();
+                }
+                return false;
+              }).eq(0).click();
             }
           });
         });

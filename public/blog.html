@@ -1,0 +1,836 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>A Pane in the RSS</title>
+    
+    <meta name="text:Disqus Shortname" content="" />
+    <link rel="icon" href="http://30.media.tumblr.com/avatar_11b21a4d55ba_16.png"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.fauxpar.se/rss"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- Default social link text -->
+    <meta name="text:Website Address" content="" />
+    <meta name="text:Blog Address" content="" />
+    <meta name="text:Flickr Username" content="" />
+    <meta name="text:Twitter Username" content="" />
+    <meta name="text:Facebook Username" content="" />
+    <meta name="text:YouTube Username" content="" />
+    <meta name="text:Lastfm Username" content="" />
+    <meta name="text:Delicious Username" content="" />
+    <meta name="text:FriendFeed Username" content="" />
+
+    <!-- Google Analytics -->
+    <meta name="text:Google Analytics ID" content="" />
+
+    <style type="text/css" media="screen">
+      body {
+        background: #181818 url(http://static.tumblr.com/jdsgjbu/J8Ali91op/noise.png) repeat 0 0;
+        color: #ccc;
+        font: 14px/20px "Museo Sans", "museo-sans-1", "museo-sans-2", sans-serif;
+        margin: 0px;
+        padding: 20px 0px 64px;
+      }
+
+      #container:after {
+/*        display: none;
+*/        content: ".";
+        pointer-events: none;
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        bottom: 0px;
+        width: 856px;
+        margin-left: -428px;
+        height: 100%;
+        overflow: hidden;
+        text-indent: -10em;
+        background: url(http://static.tumblr.com/jdsgjbu/J8Ali91op/noise.png) repeat-y 0px 0px;
+        opacity: 0.5;
+        z-index: 100;
+      }
+
+      h1, h2, h3 {
+        font-family: "League Gothic", "league-gothic-1", "league-gothic-2", sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      h1 strong,
+      h2 strong,
+      h3 strong {
+        font-weight: normal;
+        color: #ff5800;
+      }
+
+      a {
+        color: #00aeef;
+        text-decoration: none;
+        cursor: pointer;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-transition: background 0.25s ease-in, margin 0.25s ease-in, padding 0.25s ease-in;
+        -moz-transition: background 0.25s ease-in, margin 0.25s ease-in, padding 0.25s ease-in;
+      }
+
+      a:hover {
+        background: rgba(0, 174, 239, 0.15);
+        margin: 0px -4px;
+        padding: 0px 4px;
+      }
+
+      img,
+      iframe {
+        max-width: 100%;
+      }
+
+      #container {
+        position: relative;
+        margin: 0px auto;
+        padding: 20px 16px;
+        background: rgba(255, 255, 255, 0.95) url(http://static.tumblr.com/jdsgjbu/J8Ali91op/noise.png) repeat 0 0;
+        color: #333;
+        text-shadow: white 0px 1px 1px;
+        -webkit-box-shadow: black 0px 1px 8px;
+      }
+
+      #header h1 a {
+        margin: 0px;
+        padding: 0px;
+        background: none;
+        color: inherit;
+      }
+
+      #header h2 {
+        line-height: 20px;
+        vertical-align: middle;
+        font-family: "Museo Sans", sans-serif;
+        font-size: 100%;
+        color: #666;
+      }
+
+      #header ul.navigation {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #header ul.navigation li {
+        display: block;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #header ul.navigation li a {
+        text-transform: uppercase;
+        color: #666;
+      }
+      
+      .post {
+        margin: 0px 0px 20px;
+      }
+      
+      .post h2 {
+        font-size: 300%;
+        line-height: 40px;
+        padding: 12px 0px 8px;
+      }
+      
+      .post h2 a {
+        color: inherit;
+      }
+      
+      .post h3 {
+        font-size: 200%;
+        height: 30px;
+        padding: 10px 0px;
+      }
+      
+      .post strong {
+        color: black;
+        font-family: "museo-sans-1", "museo-sans-2", sans-serif;
+      }
+      
+      .post ul {
+        margin: 0px;
+        padding: 0px 0px 20px 2em;
+      }
+      
+      .quote blockquote {
+        position: relative;
+      }
+      
+      .quote blockquote p {
+        font-size: 200%;
+        line-height: 40px;
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      .quote blockquote p.source {
+        font-size: 100%;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #999;
+        line-height: 20px;
+        padding: 10px 0px;
+      }
+      
+      .quote blockquote:before {
+        content: "“";
+        position: absolute;
+        left: -0.35em;
+        top: -0.1em;
+        font-family: "League Gothic", "league-gothic-1","league-gothic-2", "Arial Narrow", sans-serif;
+        font-size: 800%;
+        line-height: 1em;
+        vertical-align: top;
+        opacity: 0.2;
+      }
+      
+      .conversation dl {
+        overflow: visible;
+        margin: 0px;
+        padding: 0px 0px 10px;
+      }
+      
+      .conversation dl dt {
+        clear: left;
+        float: left;
+        min-width: 72px;
+        color: #999;
+        margin: 0px 8px 0px 0px;
+        padding: 0px;
+      }
+
+      .conversation dl dd {
+        margin: 0px;
+        padding: 0px 0px 10px;
+      }
+      
+      .post .tags {
+        margin: 0px 0px 20px;
+        padding: 0px;
+        min-height: 20px;
+        overflow: visible;
+      }
+      
+      .post .tags li {
+        display: inline;
+        list-style: none;
+      }
+      
+      .post .tags li a {
+        position: relative;
+        float: left;
+        background: #ff5800;
+        color: white;
+        text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 1px;
+        margin: 0px 0.5em 0px 10px;
+        padding: 0px 0.5em 0px 0.25em;
+        -webkit-border-radius: 0px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px;
+      }
+
+      .post .tags li a:after {
+        position: absolute;
+        left: -10px;
+        content: ".";
+        text-indent: -10em;
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #ff5800;
+      }
+      
+      .post .tags li a:before {
+        content: "●";
+        position: relative;
+        left: -0.5em;
+        z-index: 1;
+      }
+
+      /* Full desktop display */
+      @media screen and (min-width: 672px) {
+        #container {
+          width: 856px;
+          -webkit-border-radius: 8px;
+        }
+
+        #header {
+          position: fixed;
+          top: 40px;
+          width: 136px;
+          padding-bottom: 80px;
+        }
+
+        #header h1 {
+          letter-spacing: 0;
+        }
+
+        #header h1 .line-1 {
+          font-size: 69px;
+          line-height: 70px;
+          vertical-align: middle;
+        }
+
+        #header h1 .line-2 {
+          font-size: 46px;
+          line-height: 40px;
+          vertical-align: middle;
+        }
+
+        #header h2 {
+          text-align: center;
+        }
+
+        #header ul.navigation {
+          margin: 20px 0px;
+        }
+
+        #header ul.navigation a {
+          display: block;
+          margin: 0px 0px 10px;
+        }
+
+        #body {
+          margin-left: 216px;
+        }
+
+        .post {
+          position: relative;
+          padding-right: 144px;
+        }
+
+        .post:after {
+          content: "● ● ●";
+          color: #999;
+          display: block;
+          text-align: center;
+          margin: -10px 0px 10px;
+        }
+
+        .post .date {
+          position: absolute;
+          right: -18px;
+          top: 4px;
+          margin: 0px;
+          padding: 8px;
+          width: 66px;
+          height: 40px;
+          background: #ff5800;
+          -webkit-border-top-left-radius: 8px;
+          -webkit-border-bottom-left-radius: 8px;
+          -webkit-border-top-right-radius: 0px;
+          -webkit-border-bottom-right-radius: 0px;
+          -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px, inset rgba(255, 255, 255, 0.25) 0px 1px 1px;
+        }
+
+        .post .date .month,
+        .post .date .year {
+          position: absolute;
+          top: -12px;
+          right: 2px;
+          width: 40px;
+          height: 20px;
+          margin: 0px;
+          padding: 0px;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          text-align: center;
+          text-shadow: rgba(0, 0, 0, 0.5) 1px 0px 1px;
+          color: white;
+          -webkit-transform: rotate(-90deg);
+          -webkit-transform-origin: 100% 100%;
+        }
+
+        .post .date .month { right: 58px; }
+
+        .post .date .day {
+          position: absolute;
+          right: 22px;
+          font-size: 350%;
+          line-height: 40px;
+          width: 38px;
+          vertical-align: middle;
+          text-align: center;
+          text-shadow: rgba(0, 0, 0, 0.5) 1px 0px 1px;
+          color: white;
+          font-family: "League Gothic";
+        }
+
+        .post p {
+          margin: 0px;
+          padding: 0px 0px 20px;
+        }
+
+        blockquote {
+          margin: 0px;
+          padding: 0px;
+        }
+      }
+
+      /* Narrow desktop display */
+      @media screen and (min-width: 672px) and (max-width: 951px) {
+        #container {
+          margin: 0px 32px;
+          width: auto;
+          -webkit-border-radius: 8px;
+          -webkit-box-shadow: black 0px 1px 8px;
+        }
+      }
+
+      /* Mobile display */
+      @media screen and (max-width: 671px) {
+        #container {
+
+        }
+
+        #header h1 {
+          font-size: 46px;
+          line-height: 60px;
+          text-align: center;
+          vertical-align: middle;
+          margin: 0px;
+          padding: 0px 0px 0px;
+        }
+
+        #header h2 {
+          text-align: center;
+          margin: 0px;
+          padding: 0px 0px 0px;
+        }
+
+        #header ul.navigation {
+          text-align: center;
+          margin-bottom: 20px;
+          height: 20px;
+        }
+
+        #header ul.navigation li {
+          display: inline-block;
+        }
+
+        #header ul.navigation a {
+          padding: 0 0.5em;
+          border-right: 1px solid #bbb;
+          margin: 0;
+          -webkit-border-radius: 0;
+          -webkit-transition: background 0.25s ease-in;
+        }
+
+        #header ul.navigation li:last-child a {
+          border-right: none;
+        }
+        
+        .post .date {
+          display: block;
+          margin: 12px -16px 8px;
+          padding: 0px 16px;
+          background: #ff5800;
+          color: white;
+          text-transform: uppercase;
+          text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 1px;
+        }
+        
+        .quote blockquote {
+          margin: 0px 0px 0px 40px;
+          padding: 0px 0px 20px 0px;
+        }
+        
+      }
+
+    </style>
+    <script type="text/javascript" src="http://use.typekit.com/dhx7xal.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body id="" class="">
+    <div id="container">
+      <div id="header">
+        <h2>Matt Powell’s…</h2>
+        <h1><a href="http://blog.fauxpar.se"><span class="line-1">A Pane</span> <span class="line-2">in the <strong>RSS</strong></span></a></h1>
+        <ul class="navigation">
+          <li><a href="/archive/">Archive</a></li>
+					<li><a href="/mobile">Mobile</a></li>
+					
+						
+					
+					  <li><a href="/ask">Ask me anything</a></li>
+					
+         
+					
+        </ul>
+      </div>
+      
+      <div id="body">
+        
+
+        <div class="posts">
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/3935829631/fill-your-hand-you-son-of-a-bitch"><span class="date"><span class="day">18</span> <span class="month">Mar</span> <span class="year">2011</span></span></a>
+              
+
+              
+
+              
+
+              
+                <div class="quote content">
+                  <blockquote>
+                    <p class="short">Fill your hand, you son of a bitch!</p>
+                    <p class="source">Rooster Cogburn</p>
+                  </blockquote>
+                </div>
+              
+
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+
+                
+
+                
+
+                
+
+                
+              </div>
+            </div>
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/1605081444/i-was-once-told-off-for-using-the-word"><span class="date"><span class="day">18</span> <span class="month">Nov</span> <span class="year">2010</span></span></a>
+              
+
+              
+
+              
+
+              
+
+              
+                <div class="video content">
+                  <iframe src="http://player.vimeo.com/video/7809605" width="500" height="281" frameborder="0"></iframe>
+                  <p class="caption"><p>I was once told off for using the word &#8220;incredible&#8221; to describe a performance I found awe-inspiring and captivating. In that sense, then, this may very well be the most credible thing I&#8217;ve ever seen.</p></p>
+                </div>
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+
+                
+
+                
+
+                
+
+                
+              </div>
+            </div>
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/1588722226/ralph-considers-taken-with-instagram-at-the-court"><span class="date"><span class="day">16</span> <span class="month">Nov</span> <span class="year">2010</span></span></a>
+              
+
+              
+
+              
+                <div class="photo content">
+                  <a href="http://instagr.am/p/RHrB/"><img src="http://25.media.tumblr.com/tumblr_lbyr41UPoV1qz6k93o1_500.jpg" alt="Ralph considers (Taken with instagram at The Court Theatre)" title="Ralph considers (Taken with instagram at The Court Theatre)"></a>
+                  <p class="caption"><p>Ralph considers (Taken with <a href="http://instagr.am">instagram</a> at The Court Theatre)</p></p>
+                </div>
+              
+
+              
+
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+
+                
+
+                
+
+                
+
+                
+              </div>
+            </div>
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/1561363007/phone-box-worcester-boulevard-christchurch"><span class="date"><span class="day">14</span> <span class="month">Nov</span> <span class="year">2010</span></span></a>
+              
+
+              
+
+              
+                <div class="photo content">
+                  <a href="http://blog.fauxpar.se/photo/1280/1561363007/1/tumblr_lbtqmxPUwn1qz6k93"><img src="http://25.media.tumblr.com/tumblr_lbtqmxPUwn1qz6k93o1_500.jpg" alt="Phone box, Worcester Boulevard, Christchurch." title="Phone box, Worcester Boulevard, Christchurch."></a>
+                  <p class="caption"><p>Phone box, Worcester Boulevard, Christchurch.</p></p>
+                </div>
+              
+
+              
+
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+                  <p><a href="http://blog.fauxpar.se/post/1561363007/phone-box-worcester-boulevard-christchurch">1 note</a></p>
+                
+
+                
+
+                
+
+                
+
+                
+              </div>
+            </div>
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/1558346286/salmon"><span class="date"><span class="day">13</span> <span class="month">Nov</span> <span class="year">2010</span></span></a>
+              
+
+              
+                <div class="regular content">
+                  <h2 class="title"><a href="http://blog.fauxpar.se/post/1558346286/salmon">Adventures in cooking: Chilli-Lime Salmon</a></h2>
+                  <p class="body"><p><img src="http://media.tumblr.com/tumblr_lbt1tsP9I41qz71e4.jpg" alt="Best salmon EVER?"/></p> 
+ 
+<p>Yesterday was Show Day, a kind of holiday in lieu that we in Canterbury are awarded because our actual provincial anniversary (16 December) is deemed too close to Christmas for a holiday weekend, so we get a Friday off in the middle of November instead. Traditionally, weather on Show Day is gorgeous, and yesterday certainly held up its end of the bargain, with a balmy (for Christchurch) 26°C (79°F). After a day in the sun, I felt like cooking my favourite dish, and, what the hell, sharing it with the Internet.</p> 
+ 
+<p>Like pretty much anything I cook, it&#8217;s fast, rich, and carries very little regard for dietary balance. To my credit, though, it includes both fish <em>and</em> fresh fruit, so it&#8217;s probably better than most.</p> 
+ 
+<h3>Step 1: Go to the shop</h3> 
+ 
+<p>The first thing you need is a nice bit of <strong>salmon</strong>. I use a salmon steak, which is a nice thick slab of meat backed by silvery skin; salmon happened to be on special at the supermarket yesterday, so even the smallest piece I could find was pretty massive, and cost less than five dollars. While you&#8217;re at the supermarket, pick up a couple of <strong>fresh limes</strong>: everything else you need will probably be in your cupboards at home.</p> 
+ 
+<h3>Step 2: Prepare</h3> 
+ 
+<p>Take a sharp knife and score the salmon, working across the grain of the meat at about half-inch intervals, and taking the cuts down about three quarters of the way through the steak (don&#8217;t slice right through). Into each cut, drizzle a little <strong>sweet chilli sauce</strong>. Don&#8217;t overdo the chilli, or it&#8217;ll be all you taste, but you want enough to coat the inside of the cuts. Then, finally, cut your limes into very thin wedges and place them, flesh-down, in the cuts.</p> 
+ 
+<h3>Step 2A: Entirely optional</h3> 
+ 
+<p>You can totally skip this part, but I enjoy drizzling the whole assembly with <strong>tequila</strong>. It gives it a bit of tang, and at the same time I find it mellows out the chilli sauce.</p> 
+ 
+<h3>Step 3: Grill</h3> 
+ 
+<p>How you do this depends on your preferred grilling method. I use a George Foreman grill, because I have one, but I imagine it would work just as well wrapped in aluminium foil and placed in the oven. The George Foreman does have the advantage that you can lift up the top and see how it&#8217;s going from time to time, which is important for me because I can&#8217;t really cook.</p> 
+ 
+<p>Having said that, here is my theory on cooking this dish: as the limes heat up, they release their juice into the fish, which keeps the meat moist, making it basically impossible to screw it up. The main thing is that the chilli sauce is mostly sugar, so if it gets too hot, it will caramelise, and then burn, and that&#8217;s hard to get off the grill. I&#8217;d say no more than five or six minutes, and you&#8217;re done.</p> 
+ 
+<h3>Step 4: Serve</h3> 
+ 
+<p>While you&#8217;re doing this, of course, you&#8217;ve also cooked some <strong>rice</strong> and made a green salad: maybe some <strong>baby spinach</strong>, <strong>lettuce</strong>, and <strong>capsicum</strong>, which is what you can see in the picture. That is an awful lot of salmon, but since my partner is vegetarian, I&#8217;m obliged to eat the whole thing. Life is cruel that way.</p> 
+ 
+<h3>Step 5: Enjoy (slowly)</h3> 
+ 
+<p>I say “slowly”, not because you&#8217;ll regret having finished it (although that is certainly true), but because this particular cut of salmon is full of tiny, translucent bones that really hurt if you try to swallow them. Please enjoy responsibly.</p> 
+ 
+<p>So, that&#8217;s it. Ridiculously simple, delicious, and not entirely unhealthy salmon meal, in six minutes, for six dollars. Bon appetit!</p></p>
+                </div>
+              
+
+              
+
+              
+
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+
+                
+
+                
+
+                
+
+                
+                  <ul class="tags">
+                    
+                      <li><a href="http://blog.fauxpar.se/tagged/food">food</a></li>
+                    
+                  </ul>
+                
+              </div>
+            </div>
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/1482873396/what-rolls-down-stairs-alone-or-in-pairs"><span class="date"><span class="day">21</span> <span class="month">Apr</span> <span class="year">2008</span></span></a>
+              
+
+              
+                <div class="regular content">
+                  <h2 class="title"><a href="http://blog.fauxpar.se/post/1482873396/what-rolls-down-stairs-alone-or-in-pairs">What rolls down stairs, alone or in pairs?</a></h2>
+                  <p class="body"><p><strong>I lose count of the number of times I enter passwords every day. Sure, there are <a href="http://openid.net">a few brave souls</a> trying to fix that, but it’s a way off yet. I still think, though, that for all its ubiquity, login is broken.</strong></p> 
+ 
+<p>I’m not necessarily talking about interfaces here (although I’ve seen some truly egregious specimens): I mean the word “login”. <em>Log in</em> is an example of a <a href="http://en.wikipedia.org/wiki/Phrasal_verb">phrasal verb</a>:</p> 
+ 
+<ul><li>I <em>log in</em></li> 
+<li>you <em>log in</em></li> 
+<li>he/she/it <em>logs in</em></li> 
+<li>we <em>log in</em></li> 
+<li>you <em>log in</em></li> 
+<li>they <em>log in</em></li> 
+</ul><p>Now, if you accept the convention that button text should be a verb phrase in the imperative form (“connect to server”, “launch torpedoes”, etc), you want the second person singular form: <em>log in</em>. Not <em>login</em>. You don’t <em>login</em> to a website any more than you <em>goin</em> to town, <em>eatup</em> your meal or <em>shootdown</em> spurious grammatical examples.</p> 
+ 
+<p>If you think about it, <em>login</em> is clearly not a verb:</p> 
+ 
+<ul><li>I <em>logged in</em></li> 
+<li>I <em>logginned</em> (?)</li> 
+<li>I <em>logan</em> (?)</li> 
+<li>I <em>logun</em> (?)</li> 
+</ul><p>So where does “login” come from? Well, check this out:</p> 
+ 
+<ul><li>He is so <em>hung up</em> on this phrasal verb thing.</li> 
+<li>That’s just one of his many grammatical <em>hang-ups</em> (or <em>hangups</em>, if you prefer).</li> 
+<li>I <em>looked up</em> her number.</li> 
+<li>The <em>lookup</em> algorithm on my phone is hideously inefficient.</li> 
+</ul><p>See the pattern? Phrasal verbs get turned into nouns or adjectives, and the space between the verb and the preposition gets sublimated into a hyphen, or evaporates altogether. So, you can talk about “the <em>login</em> screen”, or “automatic <em>login</em>”, but not “please <em>login</em> to get started”.</p> 
+ 
+<p>A similar thing is happening with “<em>every day</em>” and “<em>everyday</em>”:</p> 
+ 
+<ul><li>This shirt is great for <em>everyday</em> wear (adjective)</li> 
+<li>I wear this shirt <em>every day</em> (adverbial phrase)</li> 
+<li>I fail at grammar <em>everyday</em> (wrong)</li> 
+</ul><p>…and there’s a worrying tendency to use “into” wherever the words “in” and “to” are adjacent, even if it makes no sense:</p> 
+ 
+<p>I finally gave <em>into</em> her demands.</p> 
+ 
+<p>Hey, wow! It’s another phrasal verb! Since <em>in</em> is part of the verb <em>to give in</em>, you can’t squish it up with <em>to</em>. Really, you should only use into when you’re crawling up inside something like a warm kitten. Which is not as often as you’d think.</p> 
+ 
+<p>It’s one of those weird grammatical tweaks that requires a bit of knowledge to get right, but I think that’s why it gets on my nerves so much. Still, a little bit of consistency would be nice.</p></p>
+                </div>
+              
+
+              
+
+              
+
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+
+                
+
+                
+
+                
+
+                
+              </div>
+            </div>
+          
+            <div class="post">
+              
+                <a href="http://blog.fauxpar.se/post/27460696/not-all-toil-is-virtuous-some-toil-is-just"><span class="date"><span class="day">28</span> <span class="month">Feb</span> <span class="year">2008</span></span></a>
+              
+
+              
+
+              
+
+              
+                <div class="quote content">
+                  <blockquote>
+                    <p class="short">Not all toil is virtuous. Some toil is just regular old slavery.</p>
+                    <p class="source">Tycho, <a href="http://www.penny-arcade.com/2008/02/27/#22401">Penny Arcade</a></p>
+                  </blockquote>
+                </div>
+              
+
+              
+
+              
+
+              
+
+              
+              
+              <div class="aside">
+                
+
+                
+
+                
+
+                
+
+                
+                  <ul class="tags">
+                    
+                      <li><a href="http://blog.fauxpar.se/tagged/quotes">quotes</a></li>
+                    
+                  </ul>
+                
+              </div>
+            </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+      
+      <div id="footer">
+        
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

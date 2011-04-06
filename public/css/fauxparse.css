@@ -192,10 +192,12 @@ strong {
   opacity: 1.0;
 }
 
-#header .navigation .twitter a      { background-position: -72px 0px; }
-#header .navigation .twitter a span { background-position: -72px -72px; }
-#header .navigation .lastfm  a      { background-position:   0px 0px; }
-#header .navigation .lastfm  a span { background-position:   0px -72px; }
+#header .navigation .photos  a      { background-position: -216px 0px; }
+#header .navigation .photos  a span { background-position: -216px -72px; }
+#header .navigation .twitter a      { background-position:  -72px 0px; }
+#header .navigation .twitter a span { background-position:  -72px -72px; }
+#header .navigation .lastfm  a      { background-position:    0px 0px; }
+#header .navigation .lastfm  a span { background-position:    0px -72px; }
 
 #header .navigation .external a:after {
   display: none;
@@ -638,6 +640,57 @@ strong {
   color: #ccc;
 }
 
+#photos .photos {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 15px;
+  left: -10px;
+  height: 372px;
+  width: 876px;
+}
+
+#photos .photos li {
+  display: block;
+  list-style: none;
+  width: 104px;
+  height: 104px;
+  margin: 10px;
+  position: relative;
+}
+
+#photos .photos li a {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  background: none;
+}
+
+#photos .photos li a img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 104px;
+  height: 104px;
+  margin: -52px;
+  -webkit-box-shadow: black 0px 1px 4px;
+  -moz-box-shadow: black 0px 1px 4px;
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+}
+
+#photos .photos li.large,
+#photos .photos li.large a img {
+  width: 352px;
+  height: 352px;
+}
+
+#photos .photos li.large a img {
+  margin: -176px;
+  -webkit-box-shadow: black 0px 2px 8px;
+  -moz-box-shadow: black 0px 2px 8px;
+}
+
 #footer {
   position: relative;
   height: 160px;
@@ -782,4 +835,41 @@ body.grid #colophon a.grid ins { display: inline; }
 a#fancybox-close {
   margin: 0px;
   padding: 0px;
+}
+
+/* Start: Recommended Isotope styles */
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+          transition-property:         transform, opacity;
+  -webkit-transition-timing-function: ease-out;
+     -moz-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
 }
